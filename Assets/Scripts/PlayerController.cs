@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private float inteligencia = 0.3f;
     [SerializeField]
     private GameObject spawner;
+    [SerializeField]
+    private Text text;
     private NavMeshAgent agent;
     private int generacion = 0;
     private int muertes = 0;
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     void Start() {
         agent = GetComponent<NavMeshAgent>();
+        text.text = "Comida: " + comida + " Muertes: " + muertes + " Generacion: " + generacion + " Alimentado: " + alimetado;
     }
     // Update is called once per frame
     void Update()
@@ -57,6 +61,6 @@ public class PlayerController : MonoBehaviour
             }
         }
         generacion++;
-        Debug.Log("Comida: " + comida + " Muertes: " + muertes + " Generacion: " + generacion + " Alimentado: " + alimetado);
+        text.text = "Comida: " + comida + " Muertes: " + muertes + " Generacion: " + generacion + " Alimentado: " + alimetado;
     }
 }
